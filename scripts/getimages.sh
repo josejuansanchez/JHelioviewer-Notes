@@ -8,18 +8,13 @@ do
 	month=`printf "%02d" $m`
 	echo "Month: $month"
 
-	echo "Creating directory for the month"
-	#mkdir -p $month
-
 	# Iterate over the days
 	for (( d=1; d<=31; d++ ))
 	do
 		day=`printf "%02d" $d`
 		echo "Day: $day"
 
-		echo "Creating directory for the day"
-		#mkdir -p $day
-
+		echo "Creating directory for the images"
 		IMAGES_DIRECTORY=$month/$day/
 		mkdir -p $IMAGES_DIRECTORY
 
@@ -34,8 +29,7 @@ do
 		arr=($lns)
 
 		# Download the images
-		#for (( i=1; i<=total; i++ ))
-		for (( i=1; i<=2; i++ ))
+		for (( i=1; i<=total; i++ ))
 		do
 	  		echo "Downloading $i/$total..."
 	  		wget ${URL}${arr[((i-1))]}
